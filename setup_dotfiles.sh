@@ -1,8 +1,8 @@
 #!/bin/bash
 
 dotfiles=(".vimrc" ".Xresources")
-dir="${HOME}"
+dir="${HOME}/dotfiles"
 
 for dotfile in "${dotfiles[@]}";do
- ln -sf "${HOME}/${dotfile}" "${dir}"
+ ln -sf "${dir}/${dotfile}" "${HOME}"
 done
