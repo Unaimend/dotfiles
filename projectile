@@ -1,0 +1,101 @@
+Projectile commands
+    C-c p p to switch project 
+NeoTree
+    https://github.com/syl20bnr/spacemacs/blob/master/doc/DOCUMENTATION.org#neotree-file-tree
+    SPC f t to open NeoTree
+    R to make directory Root
+    # l  opens file in # window
+Commenting
+
+helm
+  SPC b b Show helm mini
+  SPC f r Show recent files
+
+general
+  SPC f f Show Directory list
+  SPC f e d Show .spacemacs
+  SPC f e R to reaload .spacemacs
+  SPC h T    Show vim tutor
+  SPC ?      Show command list
+  SPC SPC    to opemen M-x
+  SPC t n    toogle line numbers
+  SPC h SPC  to toogle helm help
+  f d        <ESC>
+  SPC t g    toogle golden ration mode(auto rezise buffers)
+  SPC t p    toogle smarthparens
+  SPC t n    toogle line numbers
+  SPC w c    toogle center buffer 
+navigation
+  SPC j 0   jump to begin of line
+  SPC j $   jump to end of line
+  SPC j j   jump to char
+  SPC j w   jump to word
+  SPC j l   jump to line
+  
+general buffer
+  SPC b n next buffer
+  SPC b p previous buffer
+  SPC b w turn read only
+  SPC b W buffer list?
+  SPC h d nice helpy things
+  
+
+Deft
+  SPC a n to open Deft
+  Now enter the notes title and press ENTER
+  here you can type the text of your note
+  SPC m d delete selected note
+  SPC m r renate selected note 
+Latex
+
+  https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Blang/latex
+  SPC m b to build
+  SPC m v to show
+  SPC b b to show list of buffer
+
+
+VIM
+  SPC + <tab> toggle between buffers 
+  :dd         deletes line and stores it in emacs killring
+  :di"        delete text between "
+  :di(        delete within the current parens
+  :help text-objects
+  :ddp        move line one line down
+  :zz         center current line
+  :w          save
+  /<word>     search <word>
+  :e.         open vim file browser
+  :ls         list bufes
+  :p          puts the last deletion after the cursor and one line below
+  :r          replaces the character under the cursor with the one typed
+  :cw         to change a whole word
+  :c          change a character
+              [number] c object(w,$(end of line))
+  :gg         moves to the end of the buffer
+  :G          moves to the beginning of the buffer
+  :number + gg or G takes you to line<number>
+  CTR + d      move screen and cursor 1/2 page down
+  CTR + u      move screen and cursor 1/2 page down
+  yy copy whole line
+  O
+  o
+VIM Movement
+  L goto bottom of screen
+  H goto top of screen
+  M goto middle of screen
+
+  b            Anfang des jetzigen Wortes
+  w           Anfang des naechsten Wortes
+  e           naechstes ex. Wortende
+  / = strg+f
+  n go match forward
+  N go match backward
+  b move back a word
+  w move forward a word
+VISUAL MODE
+       V enter v-mode linewise
+
+
+TAGS
+  ctags -e *.py   generate etags for python projects
+  SPC o t         open better tags browser
