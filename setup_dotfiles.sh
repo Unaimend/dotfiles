@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dotfiles=(".vimrc" ".Xresources")
+dotfiles=(".vimrc" ".Xresources" ".bash_aliases")
 dir="${HOME}/dotfiles"
 
 for dotfile in "${dotfiles[@]}";do
