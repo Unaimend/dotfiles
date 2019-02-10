@@ -97,5 +97,6 @@ VISUAL MODE
 
 
 TAGS
-  ctags -e *.py   generate etags for python projects
+  ctags -eR *.py   generate etags for python projects(recursively)
   SPC o t         open better tags browser
+      (spacemacs/set-leader-keys "ot" 'helm-etags-select)
