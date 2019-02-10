@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Start...</title>
+</head>
+<body style="background-color: grey">
+	<div id="wrapper"> 
+		<a id="hacker-news-icon"  href="https://news.ycombinator.com">
+			<img src="hacker-news-icon-orange.png" alt="Smiley face" height="100" width="100">
+		</a>
+		<form id="search-bar-form" align="center" action="http://www.google.com/search">
+				<input id="search-bar" type="text" name="q" placeholder="Search.." onfocus="this.value=''"> 
+		</form>
+		<a id="git-hub-icon" href="https://github.com/Unaimend">
+			<img src="git-hub-icon-orange.png" alt="Smiley face" height="100" width="100">
+		</a>
+
+		<a id="reddit-icon" href="https://www.reddit.com">
+			<img src="reddit-icon-orange.png" alt="Smiley face" height="100" width="100">
+		</a>
+
+		<a id="pr0-icon" href="https://www.pr0gramm.com">
+			<img src="pr0gramm-icon-orange.png" alt="Smiley face" height="100" width="100">
+		</a>
+	</div>
+</body>
+</html>
+
+<style type="text/css">
+
+	#wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: 35%;
+  grid-template-areas: 
+    "a b c"
+    "a b c"
+    "a b c"
+    "k l m"
+    "d e f"
+    "h i j"
+    "h i j"
+    "h i j"
+    "h i j";
+}
+	#hacker-news-icon
+	{
+		grid-area: d;
+  		align-self: center;
+  		justify-self: center;
+	}
+
+	#search-bar-form
+	{
+		grid-area: l;
+  		align-self: flex-end;
+  		/*margin-top: -10px;*/
+
+	}
+
+	#search-bar:focus {outline:0;}
+
+	#search-bar
+	{
+		/*background-color: #D62828;*/
+		/*border-color: #D62828;*/
+		color: grey;
+		width: 100%;
+		height: 40px;
+		text-align: left;
+		box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.1);
+		font-size: 30px;
+	}
+	#search-bar:hover
+	{
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+
+
+	#git-hub-icon
+	{
+		grid-area: f;
+  		justify-self: center;
+  		align-self: center;
+	}
+	
+	#reddit-icon
+	{
+		grid-area:e;
+  		align-self: center ;
+  		justify-self: center;
+	}
+
+	#pr0-icon
+	{
+		grid-area: h;
+  		/*align-self: flex-end; */
+  		justify-self: center;
+	}
+
+</style>
+
