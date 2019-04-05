@@ -45,7 +45,7 @@ Deft
   Now enter the notes title and press ENTER
   here you can type the text of your note
   SPC m d delete selected note
-  SPC m r renate selected note 
+    SPC m r renate selected note 
 Latex
 
   https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Blang/latex
@@ -57,6 +57,7 @@ Latex
 VIM
   SPC + <tab> toggle between buffers 
   :dd         deletes line and stores it in emacs killring
+  :D          deletes until end of line and stores it in emacs killring 
   :di"        delete text between "
   :di(        delete within the current parens
   :help text-objects
@@ -71,27 +72,34 @@ VIM
   :cw         to change a whole word
   :c          change a character
               [number] c object(w,$(end of line))
+  C
+  s           deletes current char and puts in insert modes
+  S
   :gg         moves to the end of the buffer
   :G          moves to the beginning of the buffer
   :number + gg or G takes you to line<number>
   CTR + d      move screen and cursor 1/2 page down
   CTR + u      move screen and cursor 1/2 page down
-  yy copy whole line
-  O
-  o
+  CTR + o      takes me back
+  CTR + i      takes me forwad
+  yy           copy whole line
+  yi"([{       yank in
+  diw =        delete current selected word
+  caw =        change current selected word and whitespacces
+
 VIM Movement
+  I go to beginning of line
   L goto bottom of screen
   H goto top of screen
   M goto middle of screen
-
-  b            Anfang des jetzigen Wortes
-  w           Anfang des naechsten Wortes
-  e           naechstes ex. Wortende
   / = strg+f
   n go match forward
   N go match backward
-  b move back a word
-  w move forward a word
+  b moves to the beginning of the previous word  
+  w move to the beginning of the next word 
+  e move to the end of the next word 
+  o moves to next line and enters insert mode
+  O moves to previous line and enters insert mode
 VISUAL MODE
        V enter v-mode linewise
 
