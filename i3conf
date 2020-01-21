@@ -37,6 +37,8 @@ default_floating_border none
 
 for_window [class=".*"] border pixel 0
 
+focus_follows_mouse no
+
 
 # start a terminal
 bindsym $mod+Return exec xterm
@@ -103,10 +105,10 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "Terminal"
-set $ws2 "Git"
-set $ws3 "Emacs"
-set $ws4 "Browser"
+set $ws1 "1:Terminal"
+set $ws2 "2:Emacs"
+set $ws3 "3:Git"
+set $ws4 "4:Browser"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
