@@ -30,7 +30,10 @@ font pango:monospace 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+
 gaps inner 20
+bindsym $mod+g gaps inner current set 0
+bindsym $mod+Shift+g gaps inner current set 10
 
 default_border none
 default_floating_border none
