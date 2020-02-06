@@ -1,2 +1,6 @@
 
 \.projectile
+
+*.swo
+
+\.i3conf\.swp
