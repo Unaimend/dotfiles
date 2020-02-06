@@ -25,6 +25,7 @@ general
   SPC t p    toogle smarthparens
   SPC t n    toogle line numbers
   SPC w c    toogle center buffer 
+
 navigation
   SPC j 0   jump to begin of line
   SPC j $   jump to end of line
@@ -113,3 +114,9 @@ TAGS
 EMACS
 
 Alt+Shit+s o occur
+
+
+NEW WINDOW
+SPC + w + F
+SPC + w + u restore previous window config
+SPC + w + C make buffer centered full width
