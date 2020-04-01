@@ -2,7 +2,7 @@ Projectile commands
     C-c p p to switch project 
 NeoTree
     https://github.com/syl20bnr/spacemacs/blob/master/doc/DOCUMENTATION.org#neotree-file-tree
-    SPC f t to open NeoTree
+    SPC p t to open NeoTree
     R to make directory Root
     # l  opens file in # window
 Commenting
@@ -48,7 +48,6 @@ Deft
   SPC m d delete selected note
     SPC m r renate selected note 
 Latex
-
   https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Blang/latex
   SPC m b to build
   SPC m v to show
@@ -62,14 +61,13 @@ VIM
   :di"        delete text between "
   :di(        delete within the current parens
   :help text-objects
-  :ddp        move line one line down
   :zz         center current line
   :w          save
   /<word>     search <word>
   :e.         open vim file browser
   :ls         list bufes
   :p          puts the last deletion after the cursor and one line below
-  :r          replaces the character under the cursor with the one typed
+  :r          replaces the character under the cursor with the next typed
   :cw         to change a whole word
   :c          change a character
               [number] c object(w,$(end of line))

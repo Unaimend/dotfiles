@@ -41,8 +41,12 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     (haskell :variables
-              haskell-enable-hindent-style "johan-tibell")
+     ;;(syntax-checking :variables syntax-checking-enable-tooltips nil)
+     ;;(haskell :variables
+              ;;haskell-enable-hindent-style "johan-tibell")
+     haskell
+     ;;(auto-completion
+      ;;(haskell :variables haskell-completion-backend 'intero))
      racket
      markdown
      auto-completion
@@ -56,7 +60,7 @@ values."
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     spell-checking
+     ;; spell-checking
      ;;syntax-checking
      ;; version-control
      )
@@ -79,6 +83,10 @@ values."
    dotspacemacs-install-packages 'used-only))
 
 (defun dotspacemacs/init ()
+
+  (setq-default c-default-style "pls")
+  (setq-default c-basic-offset 4)
+  (setq-default tab-width 4)
   "Initialization function.
 This function is called at the very startup of Spacemacs initialization
 before layers configuration.
@@ -311,9 +319,9 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
-  (setq-default c-default-style "linux"
-                c-basic-offset 4)
-  )
+  ;;(setq-default c-default-style "linux"
+   ;;             c-basic-offset 4)
+  ;;)
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -322,6 +330,9 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  (with-eval-after-load 'intero
+    (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
 
   (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
