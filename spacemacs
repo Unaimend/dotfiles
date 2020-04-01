@@ -87,11 +87,6 @@ values."
   (setq-default c-default-style "pls")
   (setq-default c-basic-offset 4)
   (setq-default tab-width 4)
-  "Initialization function.
-This function is called at the very startup of Spacemacs initialization
-before layers configuration.
-You should not put any user code in there besides modifying the variable
-values."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
@@ -322,7 +317,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;;(setq-default c-default-style "linux"
    ;;             c-basic-offset 4)
   ;;)
-
+)
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
