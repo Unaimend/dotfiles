@@ -11,9 +11,17 @@
 		<form id="search-bar-form" align="center" action="http://www.google.com/search">
 				<input id="search-bar" type="text" name="q" placeholder="Search.." onfocus="this.value=''"> 
 		</form>
-		<a id="git-hub-icon" href="https://github.com/Unaimend">
-			<img src="git-hub-icon-orange.png" alt="Smiley face" height="100" width="100">
-		</a>
+
+		<div id = "git-hub-div" class="dropdown">
+			<a id="git-hub-icon" href="https://github.com/Unaimend">
+				<img src="git-hub-icon-orange.png" alt="Smiley face" height="100" width="100">
+			</a>
+  			<div class="dropdown-content">
+    			<a href="Bionim">Bionim1</a>
+    			<a href="Phylogeni">PhylogeNi</a>
+    			<a href="nim-seq">Nim-Seq</a>
+  			</div>
+		</div>
 
 		<a id="reddit-icon" href="https://www.reddit.com">
 			<img src="reddit-icon-orange.png" alt="Smiley face" height="100" width="100">
@@ -44,12 +52,6 @@
     "h i j"
     "h i j";
 }
-	#hacker-news-icon
-	{
-		grid-area: d;
-  		align-self: center;
-  		justify-self: center;
-	}
 
 	#search-bar-form
 	{
@@ -76,28 +78,67 @@
 	{
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}
+	
 
-
-	#git-hub-icon
+	#hacker-news-icon
 	{
-		grid-area: f;
-  		justify-self: center;
+		grid-area: a;
   		align-self: center;
+  		justify-self: center;
 	}
 	
 	#reddit-icon
 	{
-		grid-area:e;
+		grid-area:b;
   		align-self: center ;
   		justify-self: center;
 	}
 
 	#pr0-icon
 	{
-		grid-area: h;
-  		/*align-self: flex-end; */
+		grid-area: c;
+  		align-self: center ;
   		justify-self: center;
 	}
+
+
+	#git-hub-div
+	{
+		grid-area: d;
+  		justify-self: center;
+  		align-self: center;
+	}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: black; 
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: orange;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
 
 </style>
 
