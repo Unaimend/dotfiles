@@ -30,7 +30,7 @@ font pango:monospace 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-
+#You need to have i3 gaps installed to used this
 
 gaps inner 20
 bindsym $mod+g gaps inner current set 0
@@ -84,10 +84,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-#bindsym $mod+h split h
+#bindsym $mod+Shift+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Shift+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -117,9 +117,9 @@ set $ws3 "3:Git"
 set $ws4 "4:Browser"
 set $ws5 "5"
 set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
+set $ws7 "7:Sl/Dc"
+set $ws8 "8:Obsidian"
+set $ws9 "9:Spotify"
 set $ws10 "10"
 
 # switch to workspace
