@@ -2,10 +2,36 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+
 PATH=$PATH:~/.local/bin
 PATH=$PATH:~/.nimble/bin
 PATH=$PATH:~/.nimble/bin/
 PATH=$PATH:~/nim/nim-1.4.4/bin
+PATH=$PATH:~/.emacs.d/bin
+PATH=$PATH:/usr/local/bin/nvim-0.6.1/bin
+PATH=$PATH:/home/td/apps/gradle-7.4/bin
+
+
+export PATH_TO_FX=~/Downloads/javafx-sdk-18/lib/
+
+source /home/td/git_packages/bashmarks/bashmarks.sh
+
+
+set LANG=en_US.UTF-8
+set LANGUAGE=en_US.UTF-8
+set LC_CTYPE="en_US.UTF-8"
+set LC_NUMERIC="en_US.UTF-8"
+set LC_TIME="en_US.UTF-8"
+set LC_COLLATE="en_US.UTF-8"
+set LC_MONETARY="en_US.UTF-8"
+set LC_MESSAGES="en_US.UTF-8"
+set LC_PAPER="en_US.UTF-8"
+set LC_NAME="en_US.UTF-8"
+set LC_ADDRESS="en_US.UTF-8"
+set LC_TELEPHONE="en_US.UTF-8"
+set LC_MEASUREMENT="en_US.UTF-8"
+set LC_IDENTIFICATION="en_US.UTF-8"
+set LC_ALL"=en_US.UTF-8"
 
 
 
@@ -110,9 +136,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -121,7 +144,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-feh --bg-fill ~/Downloads/wallpaper.jpg
 xrdb -load .Xresources
 set -o vi
 
@@ -130,9 +152,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-# BIOSTAR STUFF
-# Extend the program search PATH and add the ~/bin folder.
-export PATH=~/bin:$PATH
 
 # Makes the prompt much more user friendly.
 # But I do agree that the command to set it up looks a bit crazy.
@@ -141,8 +160,6 @@ export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
 # This is necessary for the sort to work correctly.
 export LC_ALL=C
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/td/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
@@ -158,3 +175,16 @@ unset __conda_setup
 
 #sshfs uni:/work_beegfs/sukem127 ~/dev/mice2monthWORK
 #sshfs uni: ~/dev/mice2month
+source ~/.bash_profile
+
+
+
+setxkbmap -layout us,ru
+setxkbmap -option 'grp:ctrl_alt_toggle'
+
+. "$HOME/.cargo/env"
+
+# pnpm
+export PNPM_HOME="/home/td/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

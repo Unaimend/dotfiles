@@ -1,0 +1,47 @@
+#config file ~/.tmux.conf
+set -g prefix <keybinding/C-s>
+unbind <C-b>
+bind C-s send-prefix
+
+0 1 2 3 4 .. -> 1 2 3 4 5 as row numbers
+set -g base-index 1
+Look into that
+" set -g escape-time 20
+
+set bind h select-pane -L
+set bind j select-pane -D
+set bind K select-pane -U
+set bind l select-pane -R
+
+:source ~/.tmux.conf
+
+# Standard
+## Window & Panes
+CTRL + b + %                    -> new pane(vertical)
+CTRL + b + "                    -> new pane(horizontal)
+CTRL + b + c                    -> new window
+CTRL + b + n                    -> go to n-th window
+CTRL + b + ,                    -> rename current window
+CTRL + b + z                    -> zoom
+
+CTRL + b + :                    -> show command line
+CTRL + b + q                    -> show pane number
+
+## Copy mode/Scroll buffer
+
+## Movement
+CTRL + b + <-                   -> go to left pane
+CTRL + b + ->                   -> go to right pane
+CTRL + b + up                   -> go to top pane
+CTRL + b + down                 -> go to bottom pane
+
+## Sessions
+CTRL + b + d                    -> detach current session
+tmux ls                         -> show tmux sessions
+tmux attach -t <name>           -> attach to background session
+tmux rename-session -t 0 <name> -> rename session 0 to name
+tmux new -s <name>              -> create new session with name
+tmux kill-session -t  <name>    -> kill session name
+CTRL + b + $                    -> rename session                                    
+
+# Changed

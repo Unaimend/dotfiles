@@ -1,0 +1,8 @@
+## Quick Intro
+https://www.youtube.com/watch?v=Yl7NFenTgIo&ab_channel=HackerSploit
+## Use tmux with ssh
+https://hpc-uit.readthedocs.io/en/latest/jobs/interactive.html
+## How to use bashrc in tmux
+https://unix.stackexchange.com/questions/320465/new-tmux-sessions-do-not-source-bashrc-file/541352#:~:text=bashrc%20is%20used%20in%20an,started%20by%20tmux%20skip%20~%2F.
+## Get rid of ESC delay
+https://old.reddit.com/r/vim/comments/40257u/delay_on_esc_with_tmux_and_vim/
