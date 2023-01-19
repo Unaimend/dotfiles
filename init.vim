@@ -10,6 +10,9 @@ Plug 'ggandor/lightspeed.nvim'
 Plug 'neovim/nvim-lspconfig' ", {'for' : ['c', 'cpp', 'h', 'hpp'] }
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 
+Plug 'snakemake/snakemake', {'rtp': 'misc/vim'}
+
+
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'nvim-treesitter/nvim-treesitter' "much better syntax highlighting 
 
@@ -27,6 +30,8 @@ Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 
+
+Plug 'ChrisWellsWood/roc.vim'
 call plug#end()
 
 
@@ -113,6 +118,8 @@ autocmd Filetype hpp setlocal tabstop=2
 autocmd Filetype cpp setlocal shiftwidth=2
 autocmd Filetype hpp setlocal shiftwidth=2
 
+
+"au BufRead,BufNewFile *.roc set filetype=roc
 
 au BufNewFile,BufRead *.nim setfiletype nim
 au BufNewFile,BufRead *.nim set tabstop =2

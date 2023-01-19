@@ -1,3 +1,6 @@
+#
+
+#
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -10,8 +13,12 @@ PATH=$PATH:~/nim/nim-1.4.4/bin
 PATH=$PATH:~/.emacs.d/bin
 PATH=$PATH:/usr/local/bin/nvim-0.6.1/bin
 PATH=$PATH:/home/td/apps/gradle-7.4/bin
+PATH=$PATH:/home/td/git_packages/alacritty/target/release
 
 
+export PATH=$PATH:~/git_packages/roc_nightly-linux_x86_64-2023-01-14-46d69e8
+
+#
 export PATH_TO_FX=~/Downloads/javafx-sdk-18/lib/
 
 source /home/td/git_packages/bashmarks/bashmarks.sh
@@ -32,7 +39,6 @@ set LC_TELEPHONE="en_US.UTF-8"
 set LC_MEASUREMENT="en_US.UTF-8"
 set LC_IDENTIFICATION="en_US.UTF-8"
 set LC_ALL"=en_US.UTF-8"
-
 
 
 # If not running interactively, don't do anything
@@ -58,10 +64,10 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -118,7 +124,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -l'
@@ -144,22 +150,21 @@ if ! shopt -oq posix; then
   fi
 fi
 
-xrdb -load .Xresources
 set -o vi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 
 # Makes the prompt much more user friendly.
 # But I do agree that the command to set it up looks a bit crazy.
-export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
+#export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
 
 # This is necessary for the sort to work correctly.
 export LC_ALL=C
-
+#
 __conda_setup="$('/home/td/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
@@ -172,19 +177,20 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+##
+##sshfs uni:/work_beegfs/sukem127 ~/dev/mice2monthWORK
+##sshfs uni: ~/dev/mice2month
+#source ~/.bash_profile
+#setxkbmap us
 
-#sshfs uni:/work_beegfs/sukem127 ~/dev/mice2monthWORK
-#sshfs uni: ~/dev/mice2month
-source ~/.bash_profile
 
+#setxkbmap -layout us,ru
+#setxkbmap -option 'grp:ctrl_alt_toggle'
 
-
-setxkbmap -layout us,ru
-setxkbmap -option 'grp:ctrl_alt_toggle'
-
-. "$HOME/.cargo/env"
 
 # pnpm
-export PNPM_HOME="/home/td/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+#export PNPM_HOME="/home/td/.local/share/pnpm" 
+#export PATH="$PNPM_HOME:$PATH"
+
+
 # pnpm end
