@@ -47,7 +47,7 @@ focus_follows_mouse no
 exec source ${HOME}/.fehbg
 
 # start a terminal
-bindsym $mod+Return exec xterm
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
