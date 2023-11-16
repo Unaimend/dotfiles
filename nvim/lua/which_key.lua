@@ -38,6 +38,7 @@ wk.register({
     d = {'<cmd>lua vim.lsp.buf.declaration()<CR>', 'Go to definition'},
     D = {'<cmd>lua vim.lsp.buf.declaration()<CR>', "Go to declaration"},
     a = {'<cmd>lua vim.lsp.buf.code_action()<CR>', "Code action" },
+    s = {'<cmd>lua vim.lsp.buf.document_symbol()<CR>', "Code action" },
 
   },
 }, { prefix = "<leader>" })
@@ -103,4 +104,13 @@ wk.register({
 
 
 
+wk.register({
+  o = {
+  function()
+    local buf = vim.api.nvim_get_current_buf() 
+    local ft = vim.api.nvim_buf_get_option(buf, "filetype")
+    vim.cmd(":w !octave --persist")
+  end, "octave"
+}
+}, {prefix = "<leader>"})
 

@@ -18,7 +18,7 @@ Plug 'snakemake/snakemake', {'rtp': 'misc/vim'}
 
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " TODO
-" Plug 'nvim-treesitter/nvim-treesitter' "much better syntax highlighting 
+Plug 'nvim-treesitter/nvim-treesitter' "much better syntax highlighting 
 
 
 Plug 'simrat39/symbols-outline.nvim'
@@ -28,19 +28,12 @@ Plug 'alaviss/nim.nvim'
 
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 
-" Track the engine.
-" Plug 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-" Plug 'honza/vim-snippets'
-
-
-Plug 'ChrisWellsWood/roc.vim'
-
-
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-lsp'
 Plug 'ionide/Ionide-vim'
+
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
@@ -169,12 +162,22 @@ autocmd Filetype axaml setlocal shiftwidth=2
 autocmd Filetype cs setlocal tabstop=4
 autocmd Filetype cs setlocal shiftwidth=4
 
-" au BufNewFile,BufRead *.py setfiletype python
-" au BufNewFile,BufRead *.py set tabstop =2
-" au BufNewFile,BufRead *.py set shiftwidth =2
+
+
+au BufNewFile,BufRead *.go setfiletype go
+autocmd Filetype go setlocal tabstop=2
+autocmd Filetype go setlocal shiftwidth=2
+
+au BufNewFile,BufRead *.py setfiletype python
+au BufNewFile,BufRead *.py set tabstop =2
+au BufNewFile,BufRead *.py set shiftwidth =2
+
+
+au BufNewFile,BufRead *.m set tabstop =2
+au BufNewFile,BufRead *.m set shiftwidth =2
 " 
-" autocmd Filetype py setlocal tabstop=2
-" autocmd Filetype py setlocal shiftwidth=2
+autocmd Filetype py setlocal tabstop=2
+autocmd Filetype py setlocal shiftwidth=2
 
 
 set expandtab
@@ -186,57 +189,16 @@ set clipboard=unnamedplus
  "luafile ~/.config/nvim/lua/lsp.lua
  luafile ~/.config/nvim/lua/which_key.lua
  luafile ~/.config/nvim/lua/lsp.lua
+ luafile ~/.config/nvim/lua/lsp.lua
+ luafile ~/.config/nvim/lua/python.lua
  "luafile ~/.config/nvim/lua/treesitter.lua
 " Required by vim+ctrlspace
 set nocompatible
 set hidden
 set encoding=utf-8
 set showtabline=0
-"let g:CtrlSpaceDefaultMappingKey = "<C-space> "
-"let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
-"let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
-"let g:CtrlSpaceSaveWorkspaceOnExit = 1
 
-" let s:nimlspexecutable = "nimlsp"
-" let s:clspexec= "clangd-11"
-" let g:lsp_log_verbose = 1
-" let g:lsp_log_file = expand('/tmp/vim-lsp.log')
-" " for asyncomplete.vim log
-" let g:asyncomplete_log_file = expand('/tmp/asyncomplete.log')
-" 
-" let g:asyncomplete_auto_popup = 0
-" 
-" if executable(s:nimlspexecutable)
-"    au User lsp_setup call lsp#register_server({
-"    \ 'name': 'nimlsp',
-"    \ 'cmd': {server_info->[s:nimlspexecutable]},
-"    \ 'whitelist': ['nim'],
-"    \ })
-" endif
-" 
-" 
-" 
-" if executable(s:clspexec)
-"    au User lsp_setup call lsp#register_server({
-"    \ 'name': 'clangd-11',
-"    \ 'cmd': {server_info->[s:clspexec]},
-"    \ 'whitelist': ['cpp'],
-"    \ })
-" endif
-" 
-" 
-" function! s:check_back_space() abort
-"     let col = col('.') - 1
-"     return !col || getline('.')[col - 1]  =~ '\s'
-" endfunction
 
-"inoremap <silent><expr> <TAB>
-  "\ pumvisible() ? "\<C-n>" :
-  "\ <SID>check_back_space() ? "\<TAB>" :
-  "\ asyncomplete#force_refresh()
-"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-set foldmethod=syntax
 
 "Fix this
 autocmd BufRead,BufNewFile *.nim set foldlevel=100
@@ -253,6 +215,8 @@ autocmd BufRead,BufNewFile *.h set foldlevel=100
 au BufWinLeave *.h mkview
 au BufWinEnter *.h silent loadview
 
+
+autocmd BufRead,BufNewFile *.go set foldlevel=100
 
 "function! s:on_lsp_buffer_enabled() abort
     "setlocal omnifunc=lsp#complete
@@ -292,5 +256,9 @@ set noshowcmd  " to get rid of display of last command
 set shortmess+=F  " to get rid of the file name displayed in the command line bar
 
 command! Scratch lua require'tools'.makeScratch()
+
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 
 

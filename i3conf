@@ -85,6 +85,7 @@ bindsym $mod+Shift+l move right
 
 # split in vertical orientation
 bindsym $mod+Shift+v split v
+bindsym $mod+v split h
 
 
 # Multimomitor settings
