@@ -32,12 +32,14 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-lsp'
 Plug 'ionide/Ionide-vim'
 
-"Plug 'nvim-lua/plenary.nvim'
-"Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
+
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
 
+colorscheme tokyonight-night
 
 let maplocalleader = ';'
 

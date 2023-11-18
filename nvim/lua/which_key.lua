@@ -29,6 +29,22 @@ require("which-key").setup {
 }
 
 wk = require("which-key")
+local builtin = require('telescope.builtin')
+-- vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+-- vim.keymap.set('n', '<leader>fl', builtin.live_grep, {})
+-- vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
+-- vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+
+
+wk.register({
+  f = {
+    name = "telescope", -- optional group name
+    f = {builtin.find_files, "Find files" },
+    l = {builtin.live_grep, "Live grep" },
+    g = {builtin.git_files, "git find" },
+  },
+}, { prefix = "<leader>" })
+
 
 
 wk.register({
@@ -39,6 +55,7 @@ wk.register({
     D = {'<cmd>lua vim.lsp.buf.declaration()<CR>', "Go to declaration"},
     a = {'<cmd>lua vim.lsp.buf.code_action()<CR>', "Code action" },
     s = {'<cmd>lua vim.lsp.buf.document_symbol()<CR>', "Code action" },
+    r = {'<cmd>lua vim.lsp.buf.references()<CR>', "References" },
 
   },
 }, { prefix = "<leader>" })
