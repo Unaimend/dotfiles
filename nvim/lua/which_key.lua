@@ -1,4 +1,6 @@
 
+
+
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 vim.g.maplocalleader = ';'
@@ -51,11 +53,13 @@ wk.register({
   l = {
     name = "lsp", -- optional group name
     h = {':ClangdSwitchSourceHeader<CR>', 'toggle .h/.c' },
-    d = {'<cmd>lua vim.lsp.buf.declaration()<CR>', 'Go to definition'},
+    d = {'<cmd>lua vim.lsp.buf.definition()<CR>', 'Go to definition'},
     D = {'<cmd>lua vim.lsp.buf.declaration()<CR>', "Go to declaration"},
     a = {'<cmd>lua vim.lsp.buf.code_action()<CR>', "Code action" },
-    s = {'<cmd>lua vim.lsp.buf.document_symbol()<CR>', "Code action" },
+    s = {'<cmd>lua vim.lsp.buf.document_symbol()<CR>', "Doc s" },
     r = {'<cmd>lua vim.lsp.buf.references()<CR>', "References" },
+    R = {'<cmd>lua vim.lsp.buf.rename()<CR>', "rename" },
+    h = {'<cmd>lua vim.lsp.buf.signature_help()<CR>', "rename" },
 
   },
 }, { prefix = "<leader>" })
@@ -104,22 +108,11 @@ wk.register({
 }, {prefix = "<leader>"})
 
 -- R settings
+
+
 wk.register({
-    --t = { ':Lex 40<CR>', "Show left ex."},
-    d = {'<Plug>RSendLine', "run Line"},
-    r = { 
-      name = "R",
-      r = {'<Plug>RStart', "Start R"},
-      c = {'<Plug>RClearConsole', "Clear R"},
-      t = {':call RAction("tail")<CR>', "tail"},
-      H = {':call RAction("head")<CR>', "head"}, --this should be ?
-      h = {':call RAction("help")<CR>', "help"},
-      v = {':call RAction("View")<CR>', "View"},
-    },
-    z = { ':ZoomToggle<CR>', "Zoom."},
+  x = {':vs $MYVIMRC<CR>', "open vimrc"},
 }, {prefix = "<leader>"})
-
-
 
 wk.register({
   o = {
@@ -131,3 +124,49 @@ wk.register({
 }
 }, {prefix = "<leader>"})
 
+function test()
+  curr_path = vim.api.nvim_buf_get_name(0)
+  print(curr_path)
+  i = "rmarkdown::render(\\\"" ..curr_path .. "\\\")"
+  str = ":call RAction(\"" .. i .. "\")"  
+  print(str)
+  vim.cmd(str)
+end
+
+function on_buffer_open()
+  local filetype = vim.bo.filetype
+  print(filetype)
+  if filetype == "r" or filetype == "rmd"then
+    wk.register({
+        --t = { ':Lex 40<CR>', "Show left ex."},
+        d = {'<Plug>RSendLine', "run Line"},
+        r = { 
+          name = "R",
+          r = {'<Plug>RStart', "Start R"},
+          c = {':call b:SendChunkToR("echo", "down")<CR>', "Clear R"},
+          t = {':call RAction("tail")<CR>', "tail"},
+          H = {':call RAction("head")<CR>', "head"}, --this should be ?
+          h = {':call RAction("help")<CR>', "help"},
+          v = {':call RAction("View")<CR>', "View"},
+          o = {':call RObjBrowser()<CR>', "ObjBrow"},
+          f = {'<Plug> RSendFile', "File"},
+          p = {':call RMakeRmd("pdf_document")<CR>', "pdf"}
+        },
+        z = { ':ZoomToggle<CR>', "Zoom."},
+    }, {prefix = "<leader>"})
+  -- elseif filetype == "lua" then
+  --     print("This is a Lua file.")
+  --     -- Perform actions specific to Lua files
+  --else
+  --    print("This is a file of type:", filetype)
+  --     -- Perform actions for other file types
+  end
+end
+
+-- Attach the Lua function to the BufReadPost event
+vim.api.nvim_exec([[
+    augroup on_buffer_open_group
+        autocmd!
+        autocmd BufReadPost * lua on_buffer_open()
+    augroup END
+]], false)

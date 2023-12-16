@@ -40,3 +40,8 @@ require'lspconfig'.pyright.setup{}
 vim.lsp.set_log_level("debug")
 vim.lsp.set_log_level("trace")
 
+require'lspconfig'.r_language_server.setup({
+  -- Debounce "textDocument/didChange" notifications because they are slowly
+  -- processed (seen when going through completion list with `<C-N>`)
+  flags = { debounce_text_changes = 150 },
+})

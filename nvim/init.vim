@@ -10,30 +10,22 @@ Plug 'neovim/nvim-lspconfig' "Fuzzy file finder
 " TODO 
 Plug 'ggandor/lightspeed.nvim'
 " TODO
-" Plug 'neovim/nvim-lspconfig' ", {'for' : ['c', 'cpp', 'h', 'hpp'] }
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 
 Plug 'snakemake/snakemake', {'rtp': 'misc/vim'}
-
 
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " TODO
 Plug 'nvim-treesitter/nvim-treesitter' "much better syntax highlighting 
 
-
 Plug 'simrat39/symbols-outline.nvim'
 
-Plug 'alaviss/nim.nvim'
 
-
-Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'deoplete-plugins/deoplete-lsp'
-Plug 'ionide/Ionide-vim'
+ Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
+
+Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
 
@@ -165,7 +157,6 @@ autocmd Filetype cs setlocal tabstop=4
 autocmd Filetype cs setlocal shiftwidth=4
 
 
-
 au BufNewFile,BufRead *.go setfiletype go
 autocmd Filetype go setlocal tabstop=2
 autocmd Filetype go setlocal shiftwidth=2
@@ -258,9 +249,17 @@ set noshowcmd  " to get rid of display of last command
 set shortmess+=F  " to get rid of the file name displayed in the command line bar
 
 command! Scratch lua require'tools'.makeScratch()
+set updatetime=300
 
 
-set foldmethod=expr
+set foldmethod=indent
 set foldexpr=nvim_treesitter#foldexpr()
+set nofoldenable
+let R_openpdf = 1
 
-
+"
+"
+"set foldlevel=99
+"
+" inoremap <expr> j pumvisible() ? "\<C-N>" : "<C-k>"
+" inoremap <expr> k pumvisible() ? "\<C-P>" : "<C-j>"
